@@ -2,10 +2,9 @@ package com.zy.order.service;
 
 import com.zy.order.client.CreditClient;
 import com.zy.order.client.StockClient;
+import com.zy.order.client.WmsClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class OrderService {
@@ -16,17 +15,14 @@ public class OrderService {
     @Autowired
     private CreditClient creditClient;
 
-    private final AtomicLong orderIdGenerator = new AtomicLong(1);
+    @Autowired
+    private WmsClient wmsClient;
 
-    public String createOrder(Long userId, Long productId, Integer stockCount) {
+    public String createOrder(Long productId, Long userId, Integer stockCount, Integer creditCount) {
+        System.out.println("创建订单成功");
         String stockResult = stockClient.deductStock(productId, stockCount);
-        if (!stockResult.contains("成功")) {
-            return "下单失败：" + stockResult;
-        }
-
-        String creditResult = creditClient.addCredit(userId, stockCount * 10);
-        long orderId = orderIdGenerator.getAndIncrement();
-
-        return String.format("下单成功，订单号：%d，%s，%s", orderId, stockResult, creditResult);
+        String creditResult = creditClient.addCredit(userId, creditCount);
+        String wmsResult = wmsClient.delivery(userId, productId);
+        return String.format("success，%s；%s；%s", stockResult, creditResult, wmsResult);
     }
 }

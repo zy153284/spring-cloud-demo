@@ -1,0 +1,50 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "GatewayApplication",
+            "request": "launch",
+            "mainClass": "com.zy.gateway.GatewayApplication",
+            "projectName": "cloud-gateway"
+        },
+        {
+            "type": "java",
+            "name": "CreditApplication",
+            "request": "launch",
+            "mainClass": "com.zy.credit.CreditApplication",
+            "projectName": "credit-service"
+        },
+        {
+            "type": "java",
+            "name": "OrderApplication",
+            "request": "launch",
+            "mainClass": "com.zy.order.OrderApplication",
+            "projectName": "order-service"
+        },
+        {
+            "type": "java",
+            "name": "StockApplication",
+            "request": "launch",
+            "mainClass": "com.zy.stock.StockApplication",
+            "projectName": "stock-service"
+        },
+        {
+            "type": "java",
+            "name": "WmsApplication",
+            "request": "launch",
+            "mainClass": "com.zy.wms.WmsApplication",
+            "projectName": "wms-service"
+        }
+    ]
+}

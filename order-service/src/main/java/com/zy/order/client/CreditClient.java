@@ -11,3 +11,4 @@ public interface CreditClient {
     String addCredit(@PathVariable("userId") Long userId,
                      @PathVariable("points") Integer points);
 }
+

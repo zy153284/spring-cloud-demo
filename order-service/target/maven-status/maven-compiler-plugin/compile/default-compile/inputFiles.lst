@@ -1,5 +1,6 @@
 D:\codebuddy\spring-cloud-demo\order-service\src\main\java\com\zy\order\controller\OrderController.java
 D:\codebuddy\spring-cloud-demo\order-service\src\main\java\com\zy\order\OrderApplication.java
 D:\codebuddy\spring-cloud-demo\order-service\src\main\java\com\zy\order\client\StockClient.java
+D:\codebuddy\spring-cloud-demo\order-service\src\main\java\com\zy\order\client\WmsClient.java
 D:\codebuddy\spring-cloud-demo\order-service\src\main\java\com\zy\order\service\OrderService.java
 D:\codebuddy\spring-cloud-demo\order-service\src\main\java\com\zy\order\client\CreditClient.java

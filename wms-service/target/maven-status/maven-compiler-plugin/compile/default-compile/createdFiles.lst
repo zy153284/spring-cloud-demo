@@ -1,0 +1,3 @@
+com\zy\wms\controller\WmsController.class
+com\zy\wms\WmsApplication.class
+com\zy\wms\service\WmsService.class

@@ -23,6 +23,7 @@
         <module>stock-service</module>
         <module>order-service</module>
         <module>credit-service</module>
+        <module>wms-service</module>
     </modules>
 
     <properties>

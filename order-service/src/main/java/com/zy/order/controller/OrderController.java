@@ -6,6 +6,7 @@ import org.springframework.cloud.client.serviceregistry.Registration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,11 +23,12 @@ public class OrderController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping("/create/{userId}/{productId}/{stockCount}")
-    public String createOrder(@PathVariable("userId") Long userId,
-                              @PathVariable("productId") Long productId,
-                              @PathVariable("stockCount") Integer stockCount) {
-        return orderService.createOrder(userId, productId, stockCount);
+    @GetMapping("/create")
+    public String createOrder(@RequestParam("productId") Long productId,
+                              @RequestParam("userId") Long userId,
+                              @RequestParam("stockCount") Integer stockCount,
+                              @RequestParam("creditCount") Integer creditCount) {
+        return orderService.createOrder(productId, userId, stockCount, creditCount);
     }
 
     /**

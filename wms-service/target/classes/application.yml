@@ -1,0 +1,13 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: wms-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.47:8848
+        namespace: a475194c-967f-4d6d-b3c2-3bc626ef576d
+        username: nacos
+        password: nacos
