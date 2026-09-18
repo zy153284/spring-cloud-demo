@@ -1,0 +1,22 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: public
+        username: nacos
+        password: nacos
+
+# 可选：让 Feign 使用 okhttp / 打印日志
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 5000
+        loggerLevel: full

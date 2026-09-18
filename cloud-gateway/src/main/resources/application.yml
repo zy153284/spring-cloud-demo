@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: public
+        username: nacos
+        password: nacos
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/order/**
+        - id: stock-service
+          uri: lb://stock-service
+          predicates:
+            - Path=/stock/**
+        - id: credit-service
+          uri: lb://credit-service
+          predicates:
+            - Path=/credit/**
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

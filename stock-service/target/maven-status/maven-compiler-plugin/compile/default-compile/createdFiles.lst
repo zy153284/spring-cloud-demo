@@ -1,0 +1,3 @@
+com\zy\stock\controller\StockController.class
+com\zy\stock\StockApplication.class
+com\zy\stock\service\StockService.class
