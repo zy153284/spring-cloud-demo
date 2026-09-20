@@ -1,28 +1,30 @@
 package com.zy.order.service;
 
-import com.zy.order.client.CreditClient;
-import com.zy.order.client.StockClient;
-import com.zy.order.client.WmsClient;
+import com.zy.order.feign.CreditService;
+import com.zy.order.feign.StockService;
+import com.zy.order.feign.WmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class OrderService {
 
     @Autowired
-    private StockClient stockClient;
+    private StockService stockService;
 
     @Autowired
-    private CreditClient creditClient;
+    private CreditService creditService;
 
     @Autowired
-    private WmsClient wmsClient;
+    private WmsService wmsService;
 
+    @Transactional
     public String createOrder(Long productId, Long userId, Integer stockCount, Integer creditCount) {
         System.out.println("创建订单成功");
-        String stockResult = stockClient.deductStock(productId, stockCount);
-        String creditResult = creditClient.addCredit(userId, creditCount);
-        String wmsResult = wmsClient.delivery(userId, productId);
-        return String.format("success，%s；%s；%s", stockResult, creditResult, wmsResult);
+        String stockResult = stockService.deductStock(productId, stockCount);
+        String creditResult = creditService.addCredit(userId, creditCount);
+        String wmsResult = wmsService.delivery(userId, productId);
+        return "success";
     }
 }

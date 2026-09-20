@@ -11,9 +11,13 @@ spring:
         namespace: a475194c-967f-4d6d-b3c2-3bc626ef576d
         username: nacos
         password: nacos
+      sentinel:
+        enabled: true
 
 # 可选：让 Feign 使用 okhttp / 打印日志
 feign:
+  sentinel:
+    enabled: true
   client:
     config:
       default:

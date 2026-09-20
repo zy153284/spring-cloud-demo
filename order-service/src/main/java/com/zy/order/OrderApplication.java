@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "com.zy.order.client")
+@EnableFeignClients(basePackages = "com.zy.order.feign")
 public class OrderApplication {
 
     public static void main(String[] args) {
